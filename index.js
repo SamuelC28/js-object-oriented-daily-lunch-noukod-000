@@ -91,9 +91,6 @@ class Meal {
 }
 
 //JOIN TABLE
-//belongs to meal
-//belongs to customer
-//belongs to neighborhood
 class Delivery {
   constructor(mealId, neighborhoodId, customerId) {
     this.mealId = mealId;
@@ -103,19 +100,19 @@ class Delivery {
 
     store.deliveries.push(this)
   }
-
+  //belongs to meal
   meal() {
     return store.meals.find(meal => {
       return meal.id === this.mealId;
     })
   }
-
+  //belongs to customer
   customer() {
     return store.customers.find(customer => {
       return customer.id === this.customerId;
     })
   }
-
+  //belongs to neighborhood
   neighborhood() {
     return store.neighborhoods.find(neighborhood => {
       return neighborhood.id === this.neighborhoodId;

@@ -34,9 +34,7 @@ class Neighborhood {
   }
 }
 
-//belongs to a neighborhood
-//has many deliveries
-//has many meals, through deliveries
+
 class Customer {
   constructor(name, neighborhoodId) {
     this.name = name;
@@ -45,7 +43,7 @@ class Customer {
 
     store.customers.push(this)
   }
-
+  //belongs to a neighborhood
   deliveries() {
     return store.deliveries.filter(delivery => {
       return delivery.customerId === this.id

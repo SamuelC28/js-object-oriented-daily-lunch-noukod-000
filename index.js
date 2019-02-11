@@ -49,13 +49,13 @@ class Customer {
       return delivery.customerId === this.id
     })
   }
-
+  //has many deliveries
   meals() {
     return this.deliveries().map(delivery => {
       return delivery.meal();
     })
   }
-
+  //has many meals, through deliveries
   totalSpent() {
     return this.meals().reduce((total, meal) => total + meal.price, 0)
   }

@@ -6,9 +6,6 @@ let customerId = 0;
 let mealId = 0;
 let deliveryId = 0;
 
-//has many deliveries
-//has many customers, through deliveries
-//has many meals, through deliveries
 class Neighborhood {
   constructor(name) {
     this.name = name;
@@ -16,19 +13,20 @@ class Neighborhood {
 
     store.neighborhoods.push(this)
   }
+  //has many deliveries
 
   deliveries() {
     return store.deliveries.filter(delivery => {
       return delivery.neighborhoodId === this.id
     })
   }
-
+  //has many customers, through deliveries
   customers() {
     return store.customers.filter(customer => {
       return customer.neighborhoodId === this.id
     })
   }
-
+  //has many meals, through deliveries
   meals() {
     const meals = this.deliveries().map(delivery =>
       delivery.meal())
